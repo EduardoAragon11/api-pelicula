@@ -39,6 +39,10 @@ def lambda_handler(event, context):
     except Exception as e:
         log = {
             'tipo': "ERROR",
-            'log_datos': e
+            'log_datos': str(e)
         }
         print(log)
+        return {
+            'statusCode': 500,
+            'error': str(e)
+        }
